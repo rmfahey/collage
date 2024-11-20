@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  background-color: #2196F3;
+
+}
+/*
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 30px;
+  text-align: center;
+}
+*/
+
+img { 
+  position: absolute; 
+  left: 250px; 
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* remove extra space below image */
+}
+h1 
+{
+    margin: 0;
+    padding: 0;
+    line-height:auto;
+    font-size: 30pt;
+    font-style: italic;
+    text-align: center;
+}
+h2 
+{
+    margin: 0;
+    padding: 0;
+    line-height:auto;
+    font-size: 20pt;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+	<h1>Gail Goodwin Fahey</h1> 
+	<h2 id="h2msg">The girl I met, Fell in love with.</h2>
+
+<div class="grid-container">
+		<img src= 
+"./images/Belmontian.jpg"
+			class="test" /> 
+		<img src= 
+"./images/GailNU65.jpg"
+			class="test" /> 
+		<img src= 
+"./images/easter.jpg"
+			class="test" /> 
+		<img src= 
+"./images/gail_69.jpg"
+			class="test" /> 
+		<img src= 
+"./images/GailWedding.jpg"
+			class="test" /> 
+		<img src= 
+"./images/gail_70.jpg"
+			class="test" /> 
+		<img src= 
+"./images/GailRob1974.jpg"
+			class="test" /> 
+		<img src= 
+"./images/family77.jpg"
+			class="test" /> 
+		<img src= 
+"./images/JoeBD.jpg"
+			class="test" /> 
+		<img src= 
+"./images/HospitalAsh.jpg"
+			class="test" /> 
+		<img src= 
+"./images/GrandA.jpg"
+			class="test" /> 
+		<img src= 
+"./images/AshBD.jpg"
+			class="test" /> 
+ 		<img src= 
+"./images/GailJ.jpg"
+ 			class="test" /> 
+ 		<img src= 
+"./images/GailJ2.jpg"
+ 			class="test" /> 
+ 		<img src= 
+"./images/usGirls.jpg"
+ 			class="test" /> 
+		<img src= 
+"./images/mwed.jpg"
+			class="test" /> 
+		<img src= 
+"./images/Swing.jpg"
+			class="test" /> 
+		<img src= 
+"./images/boysBD.jpg"
+			class="test" /> 
+		<img src= 
+"./images/ahs50.jpg"
+			class="test" /> 
+		<img src= 
+"./images/GailHS.jpg"
+			class="test" /> 
+</div>
+<script> 
+window.onload = function(){
+startImageTransition(); 
+
+function startImageTransition() { 
+var images = document.getElementsByClassName("test"); 
+
+for (var i = 0; i < images.length; ++i) { 
+images[i].style.opacity = 1; 
+} 
+
+var top = 1; 
+
+var cur = images.length - 1; 
+
+setInterval(changeImage, 4000); 
+
+async function changeImage() { 
+
+var nextImage = (1 + cur) % images.length; 
+console.log("The image is: "+nextImage)
+if(nextImage == 4){
+  document.getElementById("h2msg").innerHTML="The Woman I Married";
+}
+if(nextImage == 6){
+  document.getElementById("h2msg").innerHTML="The Partner I Share My Life With";
+}
+if(nextImage == 19){
+  document.getElementById("h2msg").innerHTML="The girl I met, Fell in love with."
+}
+images[cur].style.zIndex = top + 1; 
+images[nextImage].style.zIndex = top; 
+
+await transition(); 
+
+images[cur].style.zIndex = top; 
+
+images[nextImage].style.zIndex = top + 1; 
+
+top = top + 1; 
+
+images[cur].style.opacity = 1; 
+		
+cur = nextImage; 
+
+} 
+
+function transition() { 
+return new Promise(function(resolve, reject) { 
+var del = 0.01; 
+
+var id = setInterval(changeOpacity, 20); 
+
+function changeOpacity() { 
+images[cur].style.opacity -= del; 
+if (images[cur].style.opacity <= 0) { 
+clearInterval(id); 
+resolve(); 
+} 
+} 
+
+}) 
+} 
+} 
+} 
+</script> 
+</body>
+</html>
+
